@@ -12,7 +12,9 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice) {
+    const computerChoice = getComputerChoice();
+
     if (humanChoice === computerChoice) {
         console.log("Tie!");
     }
@@ -51,14 +53,29 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const rounds = parseInt(prompt("How many rounds? ", ""));
+// const rounds = parseInt(prompt("How many rounds? ", ""));
 
-for (let i = 0; i < rounds; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+// for (let i = 0; i < rounds; i++) {
+//     const humanSelection = getHumanChoice();
+//     const computerSelection = getComputerChoice();
 
-    playRound(humanSelection, computerSelection);
-    console.log(`Human: ${humanSelection}\t Computer: ${computerSelection}`)
-    console.log(humanScore);
-    console.log(computerScore);
-}
+//     playRound(humanSelection, computerSelection);
+//     console.log(`Human: ${humanSelection}\t Computer: ${computerSelection}`)
+//     console.log(humanScore);
+//     console.log(computerScore);
+// }
+
+// const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.id);
+    });
+});
+
+// playRound(humanSelection, computerSelection);
+// console.log(`Human: ${humanSelection}\t Computer: ${computerSelection}`)
+console.log(humanScore);
+console.log(computerScore);
