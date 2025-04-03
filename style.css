@@ -21,7 +21,7 @@ body {
     padding: 18px;
 }
 
-.btn-container button {
+button {
     cursor: pointer;
     font-size: medium;
     border: 2px solid black;

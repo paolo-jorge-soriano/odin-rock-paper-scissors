@@ -1,6 +1,4 @@
 // VARIABLES
-const buttons = document.querySelectorAll("button");
-
 const choices = ["rock", "paper", "scissors"];
 const scoreToWin = 5;
 let computerScore = 0;
@@ -35,6 +33,18 @@ function disableButtons() {
     });
 }
 
+function playAgain() {
+    const flexContainer = document.querySelector(".flex-container");
+    const playAgainBtn = document.createElement("button");
+
+    playAgainBtn.textContent = "Play again?";
+    flexContainer.appendChild(playAgainBtn);
+
+    playAgainBtn.addEventListener("click", () => {
+        location.reload();
+    });
+}
+
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
 
@@ -56,13 +66,16 @@ function playRound(humanChoice) {
 
     displayScore();
     displayWinner();
-    
+
     if (foundWinner) {
         disableButtons();
+        playAgain();
     }
 }
 
 // DOM
+const buttons = document.querySelectorAll("button");
+
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playRound(button.value);
