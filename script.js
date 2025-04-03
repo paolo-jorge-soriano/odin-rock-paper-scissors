@@ -1,8 +1,13 @@
+// VARIABLES
+const buttons = document.querySelectorAll("button");
+
 const choices = ["rock", "paper", "scissors"];
 const scoreToWin = 5;
 let computerScore = 0;
 let humanScore = 0;
+let foundWinner = false;
 
+// FUNCTIONS
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -15,11 +20,19 @@ function displayScore() {
 function displayWinner() {
     if (humanScore === scoreToWin) {
         alert("Human wins the game!");
+        foundWinner = true;
     }
 
     else if (computerScore === scoreToWin) {
         alert("Computer wins the game!");
+        foundWinner = true;
     }
+}
+
+function disableButtons() {
+    buttons.forEach((button) => {
+        button.disabled = true;
+    });
 }
 
 function playRound(humanChoice) {
@@ -43,10 +56,13 @@ function playRound(humanChoice) {
 
     displayScore();
     displayWinner();
+    
+    if (foundWinner) {
+        disableButtons();
+    }
 }
 
-const buttons = document.querySelectorAll("button");
-
+// DOM
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playRound(button.value);
