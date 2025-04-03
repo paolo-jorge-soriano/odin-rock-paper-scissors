@@ -4,14 +4,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>Rock, Paper, Scissors Game</title>
     </head>
 
     <body>
-        <h1>Rock, Paper, Scissors Game</h1>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <div class="flex-container">
+            <h1>Rock, Paper, Scissors Game</h1>
+
+            <div class="score-container">
+                <div id="human-score">Human score: <span id="human-score-value">0</span></div>
+                <div id="computer-score">Computer score: <span id="computer-score-value">0</span></div>
+            </div>
+
+            <div class="btn-container">
+                <button id="rock-btn" value="rock">Rock</button>
+                <button id="paper-btn" value="paper">Paper</button>
+                <button id="scissors-btn" value="scissors">Scissors</button>
+            </div>
+            
+        </div>
+
         <script src="script.js"></script>
     </body>
 
