@@ -1,6 +1,6 @@
 // VARIABLES
 const choices = ["rock", "paper", "scissors"];
-const scoreToWin = 5;
+const scoreToWin = 2;
 let computerScore = 0;
 let humanScore = 0;
 let foundWinner = false;
@@ -34,11 +34,11 @@ function disableButtons() {
 }
 
 function playAgain() {
-    const flexContainer = document.querySelector(".flex-container");
+    const mainContainer = document.querySelector(".game-container");
     const playAgainBtn = document.createElement("button");
 
     playAgainBtn.textContent = "Play again?";
-    flexContainer.appendChild(playAgainBtn);
+    mainContainer.appendChild(playAgainBtn);
 
     playAgainBtn.addEventListener("click", () => {
         location.reload();
