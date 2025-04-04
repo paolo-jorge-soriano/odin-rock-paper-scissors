@@ -1,6 +1,15 @@
+// DOM
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.value);
+    });
+});
+
 // VARIABLES
 const choices = ["rock", "paper", "scissors"];
-const scoreToWin = 2;
+const scoreToWin = 5;
 let computerScore = 0;
 let humanScore = 0;
 let foundWinner = false;
@@ -24,6 +33,31 @@ function displayWinner() {
     else if (computerScore === scoreToWin) {
         alert("Computer wins the game!");
         foundWinner = true;
+    }
+}
+
+function displayLogo(humanChoice, computerChoice) {
+    const humanLogo = document.getElementById("human-logo");
+    const computerLogo = document.getElementById("computer-logo");
+
+    if (humanChoice === "rock") {
+        humanLogo.textContent = String.fromCodePoint(0x1FAA8);
+    }
+    else if (humanChoice === "paper") {
+        humanLogo.textContent = String.fromCodePoint(0x1F4C3);
+    }
+    else {
+        humanLogo.textContent = String.fromCodePoint(0x2702, 0xFE0F);
+    }
+
+    if (computerChoice === "rock") {
+        computerLogo.textContent = String.fromCodePoint(0x1FAA8);
+    }
+    else if (computerChoice === "paper") {
+        computerLogo.textContent = String.fromCodePoint(0x1F4C3);
+    }
+    else {
+        computerLogo.textContent = String.fromCodePoint(0x2702, 0xFE0F);
     }
 }
 
@@ -65,6 +99,7 @@ function playRound(humanChoice) {
     }
 
     displayScore();
+    displayLogo(humanChoice, computerChoice);
     displayWinner();
 
     if (foundWinner) {
@@ -72,12 +107,3 @@ function playRound(humanChoice) {
         playAgain();
     }
 }
-
-// DOM
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        playRound(button.value);
-    });
-});
